@@ -85,6 +85,9 @@ async function downloadCard(g, mates){
     x.fillStyle=INK; x.font='400 38px "Jost", system-ui, sans-serif';
     wrapNames(x,mates,760).slice(0,5).forEach((l,i)=>x.fillText(l,W/2,1060+i*54));
   }
+  if(mates.length && g.note){
+    x.fillStyle=SAGE; x.font='italic 500 38px "Cormorant Garamond", Georgia, serif'; x.fillText(g.note,W/2,893);
+  }
   if(!mates.length && g.note){
     x.strokeStyle=LINE; x.beginPath(); x.moveTo(240,930); x.lineTo(840,930); x.stroke();
     x.fillStyle=INK; x.font='400 38px "Jost", system-ui, sans-serif';

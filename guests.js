@@ -46,12 +46,12 @@ const GUESTS = [
   { name: "Dexter Dizon",               place: NF, room: "Summer Room" },
   { name: "Arkid Medroso",              place: NF, room: "Summer Room" },
   // Nato’s Farm – Creek View
-  { name: "Giselle David",              place: NF, room: "Creek View" },
-  { name: "Francis David",              place: NF, room: "Creek View" },
+  { name: "Giselle David",              place: NF, room: "Creek View", note: "Independently arranged" },
+  { name: "Francis David",              place: NF, room: "Creek View", note: "Independently arranged" },
   // Nato’s Farm – Family Room
-  { name: "Randy David",                place: NF, room: "Family Room" },
-  { name: "Danielle Rubin-David",       place: NF, room: "Family Room" },
-  { name: "Keisha Rae R. David",       place: NF, room: "Family Room" },
+  { name: "Randy David",                place: NF, room: "Family Room", note: "Independently arranged" },
+  { name: "Danielle Rubin-David",       place: NF, room: "Family Room", note: "Independently arranged" },
+  { name: "Keisha Rae R. David",       place: NF, room: "Family Room", note: "Independently arranged" },
   // Independently arranged (no hotel room from us)
   { name: "Bettina Guevarra",           place: "", room: "Independently arranged", note: "You have arranged your own stay." },
   { name: "Elerie Malang-Alfonso",      place: "", room: "Independently arranged", note: "You have arranged your own stay." },
