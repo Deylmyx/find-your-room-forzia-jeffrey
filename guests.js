@@ -51,5 +51,11 @@ const GUESTS = [
   // Nato’s Farm – Family Room
   { name: "Randy David",                place: NF, room: "Family Room" },
   { name: "Danielle Rubin-David",       place: NF, room: "Family Room" },
-  { name: "Baby Keisha",                place: NF, room: "Family Room" }
+  { name: "Keisha Rae R. David",       place: NF, room: "Family Room" },
+  // Independently arranged (no hotel room from us)
+  { name: "Bettina Guevarra",           place: "", room: "Independently arranged", note: "You have arranged your own stay." },
+  { name: "Elerie Malang-Alfonso",      place: "", room: "Independently arranged", note: "You have arranged your own stay." },
+  { name: "Luis Alfonso",               place: "", room: "Independently arranged", note: "You have arranged your own stay." },
+  // RSVP pending
+  { name: "Daryll Paule",               place: "", room: "To be confirmed", note: "RSVP pending. Your room will be updated once confirmed." }
 ];

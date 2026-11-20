@@ -4,10 +4,10 @@ const norm = s => s.normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[â€
 function esc(s){ return String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
 
 function showTag(g){
-  const mates = GUESTS.filter(o => o !== g && o.place === g.place && o.room === g.room).map(o => o.name);
+  const mates = !g.place ? [] : GUESTS.filter(o => o !== g && o.place === g.place && o.room === g.room).map(o => o.name);
   const extra = [g.note].filter(Boolean).join(" ");
   $("out").innerHTML =
-    '<div class="tag"><p class="who">'+esc(g.name)+'</p><p class="lbl">Your room at '+esc(g.place)+'</p>' +
+    '<div class="tag"><p class="who">'+esc(g.name)+'</p><p class="lbl">'+(g.place ? 'Your room at '+esc(g.place) : 'Your accommodation')+'</p>' +
     '<p class="num">'+esc(g.room)+'</p>' +
     '<p class="note">'+esc(STAY)+(extra ? ' Â· '+esc(extra) : '')+'</p>' +
     (mates.length ? '<p class="mates">Sharing with: '+esc(mates.join(", "))+'</p>' : '') + '</div>' +
@@ -75,7 +75,7 @@ async function downloadCard(g, mates){
   x.fillStyle=SAGE; x.font='italic 500 44px "Cormorant Garamond", Georgia, serif'; x.fillText(STAY,W/2,430);
   x.strokeStyle=LINE; x.beginPath(); x.moveTo(240,490); x.lineTo(840,490); x.stroke();
   x.fillStyle=INK; x.font='600 64px "Cormorant Garamond", Georgia, serif'; x.fillText(g.name,W/2,600);
-  x.fillStyle=MUTED; x.font='400 34px "Jost", system-ui, sans-serif'; x.fillText("Your room at "+g.place,W/2,665);
+  x.fillStyle=MUTED; x.font='400 34px "Jost", system-ui, sans-serif'; x.fillText(g.place ? "Your room at "+g.place : "Your accommodation",W/2,665);
   let size=150; x.fillStyle=SAGE;
   do{ x.font='600 '+size+'px "Cormorant Garamond", Georgia, serif'; size-=6; } while(x.measureText(g.room).width>800 && size>40);
   x.fillText(g.room,W/2,840);
