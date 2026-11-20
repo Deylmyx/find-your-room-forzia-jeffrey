@@ -9,7 +9,7 @@ function showTag(g){
   $("out").innerHTML =
     '<div class="tag"><p class="who">'+esc(g.name)+'</p><p class="lbl">'+(g.place ? 'Your room at '+esc(g.place) : 'Your accommodation')+'</p>' +
     '<p class="num">'+esc(g.room)+'</p>' +
-    '<p class="note">'+esc(STAY)+(extra ? ' · '+esc(extra) : '')+'</p>' +
+    '<p class="note">'+esc(STAY)+'</p>' + (extra ? '<p class="mates">'+esc(extra)+'</p>' : '') +
     (mates.length ? '<p class="mates">Sharing with: '+esc(mates.join(", "))+'</p>' : '') + '</div>' +
     '<button class="dl" type="button" id="dl">Download my room card</button>' +
     '<button class="again" type="button" id="again">Search another name</button>';
@@ -85,5 +85,20 @@ async function downloadCard(g, mates){
     x.fillStyle=INK; x.font='400 38px "Jost", system-ui, sans-serif';
     wrapNames(x,mates,760).slice(0,5).forEach((l,i)=>x.fillText(l,W/2,1060+i*54));
   }
+  if(!mates.length && g.note){
+    x.strokeStyle=LINE; x.beginPath(); x.moveTo(240,930); x.lineTo(840,930); x.stroke();
+    x.fillStyle=INK; x.font='400 38px "Jost", system-ui, sans-serif';
+    wrapWords(x,g.note,760).slice(0,4).forEach((l,i)=>x.fillText(l,W/2,1010+i*54));
+  }
   c.toBlob(b=>{ if(b) saveBlob(b,"room-"+norm(g.name).replace(/[^a-z0-9]+/g,"-")+".png"); },"image/png");
+}
+
+function wrapWords(x,text,max){
+  const lines=[]; let line="";
+  text.split(" ").forEach(w=>{
+    const t=line?line+" "+w:w;
+    if(line && x.measureText(t).width>max){lines.push(line);line=w;} else line=t;
+  });
+  if(line) lines.push(line);
+  return lines;
 }
