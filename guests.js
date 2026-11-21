@@ -59,3 +59,24 @@ const GUESTS = [
   // RSVP pending
   { name: "Daryll Paule",               place: "", room: "To be confirmed", note: "RSVP pending. Your room will be updated once confirmed." }
 ];
+
+// ✏️ WEDDING SCHEDULE shown on every guest's card. Use "time — activity" so the time stands out.
+const SCHEDULE_TITLE = "Wedding weekend";
+const SCHEDULE = [
+  { day: "Monday, March 15", items: [
+    "12:00 NN — Guest Check-in",
+    "Afternoon — Settle In & Explore the Ranch",
+    "6:00 PM — Welcome Dinner" ] },
+  { day: "Tuesday, March 16", items: [
+    "Morning — Breakfast at Lake Bantug Ranch",
+    "Daytime — Relax, Explore & Get Ready",
+    "4:30 PM — Wedding Ceremony at The Ruins",
+    "5:30 PM onwards — Wedding Reception" ] },
+  { day: "Wednesday, March 17", items: [
+    "Morning — Breakfast & Leisure Time at the Ranch",
+    "12:00 NN — Guest Check-out" ] }
+];
+const SCHEDULE_NOTES = [
+  "Enjoy the beauty of Lake Bantug Ranch throughout your stay. Feel free to explore, unwind, and make the most of our time together.",
+  "Complimentary breakfast at Lake Bantug Ranch is included for all guests on March 16 and 17."
+];

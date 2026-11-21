@@ -67,26 +67,26 @@ async function downloadCard(g, mates){
   }catch(e){}
   const W=1080,H=1350,c=document.createElement("canvas"); c.width=W; c.height=H;
   const x=c.getContext("2d"); x.textAlign="center";
-  const INK="#2B382A", SAGE="#566D4E", MUTED="#566353", LINE="#BFCBBC";
-  x.fillStyle="#E4EBE2"; x.fillRect(0,0,W,H);
-  roundRect(x,80,80,W-160,H-160,48); x.fillStyle="#F8F4E8"; x.fill(); x.strokeStyle=LINE; x.lineWidth=3; x.stroke();
-  x.fillStyle=SAGE; x.beginPath(); x.arc(W/2,175,26,0,Math.PI*2); x.fill();
+  const INK="#3A2A20", ACCENT="#8A5A3B", MUTED="#6F5B4B", LINE="#D7C4AE";
+  x.fillStyle="#EFE4D6"; x.fillRect(0,0,W,H);
+  roundRect(x,80,80,W-160,H-160,48); x.fillStyle="#FAF4EA"; x.fill(); x.strokeStyle=LINE; x.lineWidth=3; x.stroke();
+  x.fillStyle=ACCENT; x.beginPath(); x.arc(W/2,175,26,0,Math.PI*2); x.fill();
   x.fillStyle=INK; x.font='400 120px "Pinyon Script", cursive'; x.fillText("Forzia & Jeffrey",W/2,360);
-  x.fillStyle=SAGE; x.font='italic 500 44px "Cormorant Garamond", Georgia, serif'; x.fillText(STAY,W/2,430);
+  x.fillStyle=ACCENT; x.font='italic 500 44px "Cormorant Garamond", Georgia, serif'; x.fillText(STAY,W/2,430);
   x.strokeStyle=LINE; x.beginPath(); x.moveTo(240,490); x.lineTo(840,490); x.stroke();
   x.fillStyle=INK; x.font='600 64px "Cormorant Garamond", Georgia, serif'; x.fillText(g.name,W/2,600);
   x.fillStyle=MUTED; x.font='400 34px "Jost", system-ui, sans-serif'; x.fillText(g.place ? "Your room at "+g.place : "Your accommodation",W/2,665);
-  let size=150; x.fillStyle=SAGE;
+  let size=150; x.fillStyle=ACCENT;
   do{ x.font='600 '+size+'px "Cormorant Garamond", Georgia, serif'; size-=6; } while(x.measureText(g.room).width>800 && size>40);
   x.fillText(g.room,W/2,840);
+  if(mates.length && g.note){
+    x.fillStyle=ACCENT; x.font='italic 500 38px "Cormorant Garamond", Georgia, serif'; x.fillText(g.note,W/2,893);
+  }
   if(mates.length){
     x.strokeStyle=LINE; x.beginPath(); x.moveTo(240,930); x.lineTo(840,930); x.stroke();
     x.fillStyle=MUTED; x.font='400 32px "Jost", system-ui, sans-serif'; x.fillText("Sharing with",W/2,1000);
     x.fillStyle=INK; x.font='400 38px "Jost", system-ui, sans-serif';
     wrapNames(x,mates,760).slice(0,5).forEach((l,i)=>x.fillText(l,W/2,1060+i*54));
-  }
-  if(mates.length && g.note){
-    x.fillStyle=SAGE; x.font='italic 500 38px "Cormorant Garamond", Georgia, serif'; x.fillText(g.note,W/2,893);
   }
   if(!mates.length && g.note){
     x.strokeStyle=LINE; x.beginPath(); x.moveTo(240,930); x.lineTo(840,930); x.stroke();
